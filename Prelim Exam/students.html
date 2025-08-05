@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Student Form</title>
+  <style>
+   
+     
+     
+    form {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      font-weight: bold;
+    }
+    input, select {
+      padding: 8px;
+ 
+    }
+    .full-width {
+      grid-column: span 3;
+    }
+    .btn-submit {
+      background-color: green;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      grid-column: span 3;
+      justify-self: start;
+    }
+    .profile-picture {
+      grid-column: span 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .profile-picture img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid #ccc;
+
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Add Student Form</h2>
+
+  <form>
+    <!-- Profile Picture Section -->
+    <div class="profile-picture">
+      <img id="preview" src="https://via.placeholder.com/150" alt="Profile Preview">
+      <input type="file" accept="image/*" onchange="loadImage(event)">
+    </div>
+
+    <!-- Student Details -->
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" placeholder="ex. Juan" required>
+    </div>
+
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" placeholder="ex. Dela Cruz" required>
+    </div>
+
+    <div class="form-group">
+      <label>Middle Name</label>
+      <input type="text" placeholder="ex. Cruz">
+    </div>
+
+    <div class="form-group">
+      <label>Gender</label>
+      <label><input type="radio" name="gender" value="Male"> Male</label>
+      <label><input type="radio" name="gender" value="Female"> Female</label>
+    </div>
+
+    <div class="form-group">
+      <label>Civil Status</label>
+      <select required>
+        <option value="">-- Select --</option>
+        <option value="Single">Single</option>
+        <option value="Married">Married</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Date of Birth</label>
+      <input type="date" required>
+    </div>
+
+    <div class="form-group">
+      <label>Place of Birth</label>
+      <input type="text" placeholder="ex. Tarlac City">
+    </div>
+
+    <div class="form-group">
+      <label>Nationality</label>
+      <input type="text" placeholder="ex. Filipino" required>
+    </div>
+
+    <div class="form-group">
+      <label>Religion</label>
+      <input type="text" placeholder="ex. Roman Catholic" required>
+    </div>
+
+    <div class="form-group">
+      <label>Contact No.</label>
+      <input type="tel" placeholder="09XXXXXXXXX" pattern="09\d{9}" required>
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" placeholder="ex. JuanD@email.com" required>
+    </div>
+
+    <div class="form-group">
+      <label>Street</label>
+      <input type="text" placeholder="ex. 85th Subd." required>
+    </div>
+
+    <div class="form-group">
+      <label>Barangay</label>
+      <input type="text" placeholder="ex. Sto. Rosario" required>
+    </div>
+
+    <div class="form-group">
+      <label>City</label>
+      <input type="text" placeholder="ex. Capas" required>
+    </div>
+
+    <div class="form-group">
+      <label>Province</label>
+      <input type="text" placeholder="ex. Tarlac" required>
+    </div>
+
+    <button type="submit" class="btn-submit">Add Student</button>
+  </form>
+
+  <script>
+    function loadImage(event) {
+      const output = document.getElementById('preview');
+      output.src = URL.createObjectURL(event.target.files[0]);
+    }
+  </script>
+
+</body>
+</html>
